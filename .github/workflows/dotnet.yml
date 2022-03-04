@@ -32,7 +32,7 @@ jobs:
     - name: Build Solution
       run: |
         pwd
-        msbuild.exe SimpleNetFrame.sln /p:platform="x64" /p:configuration="Release" /p:OutputPath=.\build-output
+        msbuild.exe SimpleNetFrame.sln /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build-output
 
     # - run: |
     #     dir D:\a\dotnet-framework-48\dotnet-framework-48\SimpleNetFrame\build-output\
