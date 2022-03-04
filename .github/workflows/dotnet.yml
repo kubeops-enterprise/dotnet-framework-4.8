@@ -36,6 +36,9 @@ jobs:
 
     - run: |
         dir D:\a\dotnet-framework-48\dotnet-framework-48\SimpleNetFrame\build-output\
+
+    - run: |
+        dir D:\a\dotnet-framework-48\dotnet-framework-48\SimpleNetFrame\
         
     # - name: Run Tests
     #   run: vstest.console.exe .\UnitTestProject1\bin\Release\UnitTestProject1.dll
