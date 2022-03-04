@@ -1,1 +1,3 @@
-# dotnet-framework-4.8
+# SimpleNetFrame
+
+For testing deployment on azure app service
