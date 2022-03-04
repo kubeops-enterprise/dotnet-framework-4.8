@@ -237,7 +237,7 @@
     <None Include=".dockerignore">
       <DependentUpon>Dockerfile</DependentUpon>
     </None>
-    <None Include="Properties\PublishProfiles\app-appspoke-az-ince-dev-001 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\man-old-app - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
