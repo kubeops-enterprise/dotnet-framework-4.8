@@ -43,11 +43,15 @@ jobs:
     # - name: Run Tests
     #   run: vstest.console.exe .\UnitTestProject1\bin\Release\UnitTestProject1.dll
 
-    - name: Deploy to Azure Web App
-      id: deploy-to-webapp
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: 'app-appspoke-az-ince-dev-001'
-        slot-name: 'Production'
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_PRODUCTION }}
-        package: D:\a\dotnet-framework-48\dotnet-framework-48\SimpleNetFrame\build-output\
+    # - name: Deploy to Azure Web App
+    #   id: deploy-to-webapp
+    #   uses: azure/webapps-deploy@v2
+    #   with:
+    #     app-name: 'app-appspoke-az-ince-dev-001'
+    #     slot-name: 'Production'
+    #     publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_PRODUCTION }}
+    #     package: D:\a\dotnet-framework-48\dotnet-framework-48\SimpleNetFrame\build-output\
+
+  deploy:
+    needs: build
+    runs-on: self-hosted:zone1
