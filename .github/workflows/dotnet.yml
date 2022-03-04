@@ -44,4 +44,4 @@ jobs:
         app-name: 'app-appspoke-az-ince-dev-001'
         slot-name: 'Production'
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_PRODUCTION }}
-        package: .\build-output
+        package: D:\a\dotnet-framework-4.8\dotnet-framework-4.8\SimpleNetFrame\build-output\
