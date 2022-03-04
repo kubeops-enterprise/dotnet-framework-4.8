@@ -31,7 +31,16 @@ jobs:
 
     - name: Build Solution
       run: |
-        msbuild.exe SimpleNetFrame.sln /p:platform="Any CPU" /p:configuration="Release"
+        msbuild.exe SimpleNetFrame.sln /p:platform="Any CPU" /p:configuration="Release" /o:build-output
         
     - name: Run Tests
       run: vstest.console.exe .\UnitTestProject1\bin\Release\UnitTestProject1.dll
+
+    - name: Deploy to Azure Web App
+      id: deploy-to-webapp
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'app-appspoke-az-ince-dev-001'
+        slot-name: 'Production'
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_PRODUCTION }}
+        package: ./build-output
