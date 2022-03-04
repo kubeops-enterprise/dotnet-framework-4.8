@@ -20,8 +20,8 @@ jobs:
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.5
         
-    - name: Setup VSTest
-      uses: darenm/Setup-VSTest@v1
+    # - name: Setup VSTest
+    #   uses: darenm/Setup-VSTest@v1
 
     - name: Navigate to Workspace
       run: cd $GITHUB_WORKSPACE
@@ -34,8 +34,8 @@ jobs:
         pwd
         msbuild.exe SimpleNetFrame.sln /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build-output
         
-    - name: Run Tests
-      run: vstest.console.exe .\UnitTestProject1\bin\Release\UnitTestProject1.dll
+    # - name: Run Tests
+    #   run: vstest.console.exe .\UnitTestProject1\bin\Release\UnitTestProject1.dll
 
     - name: Deploy to Azure Web App
       id: deploy-to-webapp
