@@ -32,13 +32,13 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: ASP-app
-          path: '/published/**'
+          path: "/published/**"
 
   deploy:
-    runs-on: windows-2019
+    runs-on: self-hosted
     needs: build
     environment:
-      name: 'Production'
+      name: "Production"
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -51,7 +51,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'man-old-app'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5F570A7270EB4D5FB1874B54777A2F07 }}
+          app-name: "app-appspoke-az-ince-dev-001"
+          slot-name: "Production"
+          publish-profile: ${{ secrets.APP_APPSPOKE_PUBLISHFILE }}
           package: .
