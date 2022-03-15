@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,6 +12,9 @@ namespace SimpleNetFrame.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
+            var check = ConfigurationSettings.AppSettings["AzureKeyVault"];
+            ViewBag.CheckConf = !string.IsNullOrEmpty(check);
+            
 
             return View();
         }
