@@ -12,7 +12,7 @@ namespace SimpleNetFrame.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
-            var check = ConfigurationSettings.AppSettings["AzureKeyVault"];
+            var check = ConfigurationSettings.AppSettings["kubeexuser"];
             ViewBag.CheckConf = !string.IsNullOrEmpty(check);
             
 
