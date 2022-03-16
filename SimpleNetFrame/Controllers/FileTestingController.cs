@@ -17,19 +17,27 @@ namespace SimpleNetFrame.Controllers
 
             try
             {
-                string userAssignedClientId = "3c221eb4-d9cf-4cf6-85e0-d931accf544c";
+                string userAssignedClientId = "3181123d-a2d2-49f1-ae9a-0a8542ff2161";
 
                 var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = userAssignedClientId });
 
-                var blobClient = new BlobClient(new Uri("https://wasuwat.blob.core.windows.net/test"), credential);
+                //return credential.GetToken();
 
-                if (blobClient.CanGenerateSasUri)
-                {
-                    return "OK";
-                } else
-                {
-                    return "NOT OK";
-                }
+                var blobClient = new BlobClient(new Uri("https://wasuwat.blob.core.windows.net/test/asdf.txt"), credential);
+
+                var content = blobClient.DownloadContent();
+
+                return content.ToString();
+
+                //return "SSS";
+
+                //if (blobClient.CanGenerateSasUri)
+                //{
+                //    return "OK";
+                //} else
+                //{
+                //    return "NOT OK";
+                //}
 
                 //ShareClient share = new ShareClient("FileEndpoint=https://wasuwat.file.core.windows.net", "test-file-share");
 
