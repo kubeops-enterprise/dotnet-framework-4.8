@@ -14,7 +14,6 @@ namespace SimpleNetFrame.Controllers
             ViewBag.Title = "Home Page";
             var check = ConfigurationSettings.AppSettings["kubeexuser"];
             ViewBag.CheckConf = !string.IsNullOrEmpty(check);
-            
 
             return View();
         }
