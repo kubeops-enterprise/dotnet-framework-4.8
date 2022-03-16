@@ -17,7 +17,7 @@ namespace SimpleNetFrame.Controllers
 
             try
             {
-                string userAssignedClientId = "3181123d-a2d2-49f1-ae9a-0a8542ff2161";
+                string userAssignedClientId = "3c221eb4-d9cf-4cf6-85e0-d931accf544c";
 
                 var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = userAssignedClientId });
 
