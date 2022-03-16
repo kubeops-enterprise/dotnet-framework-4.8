@@ -334,6 +334,7 @@
     <Compile Include="Controllers\FileShareTestingController.cs" />
     <Compile Include="Controllers\BlobTestingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReadBlobController.cs" />
     <Compile Include="Controllers\TestErrorController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="ErrorHandler\AiHandleErrorAttribute.cs" />
