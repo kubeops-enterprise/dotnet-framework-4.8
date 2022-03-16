@@ -403,13 +403,13 @@
       <DependentUpon>Dockerfile</DependentUpon>
     </None>
     <None Include="Properties\PublishProfiles\app-appspoke-az-ince-dev-001 - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\man-old-app - Web Deploy.pubxml" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\app-netf48-appspoke-az-ince-dev-002 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
