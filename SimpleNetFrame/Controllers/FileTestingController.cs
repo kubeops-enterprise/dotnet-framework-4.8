@@ -1,4 +1,5 @@
 ﻿using Azure.Storage.Files.Shares;
+using Azure.Identity;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,8 +13,13 @@ namespace SimpleNetFrame.Controllers
     {
         public string Get()
         {
+
             try
             {
+                var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = "3c221eb4-d9cf-4cf6-85e0-d931accf544c" });
+
+                return credential.ToString();
+
                 ShareClient share = new ShareClient("FileEndpoint=https://wasuwat.file.core.windows.net", "test-file-share");
             
                 share.CreateIfNotExists();
