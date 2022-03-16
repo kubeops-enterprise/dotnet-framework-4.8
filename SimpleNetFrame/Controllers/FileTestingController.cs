@@ -15,53 +15,60 @@ namespace SimpleNetFrame.Controllers
         public string Get()
         {
 
-            try
+            string userAssignedClientId = "3c221eb4-d9cf-4cf6-85e0-d931accf544c";
+
+            var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = userAssignedClientId });
+
+            //return credential.GetToken(new Azure.Core.TokenRequestContext());
+
+            var blobClient = new BlobClient(new Uri("https://wasuwat.blob.core.windows.net/test/asdf.txt"), credential);
+
+            if (blobClient.Exists())
             {
-                string userAssignedClientId = "3c221eb4-d9cf-4cf6-85e0-d931accf544c";
-
-                var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = userAssignedClientId });
-
-                //return credential.GetToken();
-
-                var blobClient = new BlobClient(new Uri("https://wasuwat.blob.core.windows.net/test/asdf.txt"), credential);
-
-                var content = blobClient.DownloadContent();
-
-                return content.ToString();
-
-                //return "SSS";
-
-                //if (blobClient.CanGenerateSasUri)
-                //{
-                //    return "OK";
-                //} else
-                //{
-                //    return "NOT OK";
-                //}
-
-                //ShareClient share = new ShareClient("FileEndpoint=https://wasuwat.file.core.windows.net", "test-file-share");
-
-                //ShareClient share = new ShareClient("https://wasuwat.file.core.windows.net/test-file-share", credential);
-
-
-                //share.CreateIfNotExists();
-
-                //var superDir = share.GetDirectoryClient("super");
-                //superDir.CreateIfNotExists();
-
-                //var fileClient = superDir.GetFileClient("ex_"+DateTime.Now.ToString("dd-MM-yy_HH-mm-ss"));
-
-                //MemoryStream ms = new MemoryStream(System.Text.Encoding.ASCII.GetBytes("HelloWord"));
-                //fileClient.Create(ms.Length);
-                //fileClient.UploadRange(new Azure.HttpRange(0, ms.Length), ms);
-
-                return "Ok";
-
+                return "OK";
             }
-            catch (Exception e)
+            else
             {
-                return e.Message;
+                return "NOT OK";
             }
+
+            //try
+            //{
+
+
+            //    //return "SSS";
+
+            //    //if (blobClient.CanGenerateSasUri)
+            //    //{
+            //    //    return "OK";
+            //    //} else
+            //    //{
+            //    //    return "NOT OK";
+            //    //}
+
+            //    //ShareClient share = new ShareClient("FileEndpoint=https://wasuwat.file.core.windows.net", "test-file-share");
+
+            //    //ShareClient share = new ShareClient("https://wasuwat.file.core.windows.net/test-file-share", credential);
+
+
+            //    //share.CreateIfNotExists();
+
+            //    //var superDir = share.GetDirectoryClient("super");
+            //    //superDir.CreateIfNotExists();
+
+            //    //var fileClient = superDir.GetFileClient("ex_"+DateTime.Now.ToString("dd-MM-yy_HH-mm-ss"));
+
+            //    //MemoryStream ms = new MemoryStream(System.Text.Encoding.ASCII.GetBytes("HelloWord"));
+            //    //fileClient.Create(ms.Length);
+            //    //fileClient.UploadRange(new Azure.HttpRange(0, ms.Length), ms);
+
+            //    //return "Ok";
+
+            //}
+            //catch (Exception e)
+            //{
+            //    return e.Message;
+            //}
         }
     }
 }
