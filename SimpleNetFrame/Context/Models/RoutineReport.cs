@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SimpleNetFrame.Context.Models
 {
-    [Table("routine_report")]
+    [Table("routine_reports")]
     public class RoutineReport
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity), Column("id")]

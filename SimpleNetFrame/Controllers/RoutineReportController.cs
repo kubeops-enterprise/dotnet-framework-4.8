@@ -3,21 +3,33 @@ using SimpleNetFrame.Context.Models;
 using System.Configuration;
 using System.Linq;
 using System.Web.Http;
+using System.Linq;
 
 namespace SimpleNetFrame.Controllers
 {
     public class RoutineReportController : ApiController
     {
-        public IHttpActionResult Get()
+        private readonly KubeExContext _kubeContext;
+        public RoutineReportController()
         {
-            var db = new KubeExContext();
+            var conStr = ConfigurationManager.ConnectionStrings["kubeexuser"];
+            _kubeContext = new KubeExContext();
+        }
+        public IHttpActionResult Get(int id)
+        {
+
             //var conStr = ConfigurationManager.AppSettings.GetValues("kubeexuser").FirstOrDefault();
 
-            var record = new RoutineReport() { Body = "TestBody", Topic = "FirstTopic", CreatedDate = System.DateTimeOffset.Now };
+            return Ok(_kubeContext.RoutineReports.FirstOrDefault(a => a.Id == id));
+        }
 
-            db.RoutineReports.Add(record);
+        public IHttpActionResult Post(string topic, string body)
+        {
+            var record = new RoutineReport() { Body = body, Topic = topic, CreatedDate = System.DateTimeOffset.Now };
 
-            db.SaveChanges();
+            _kubeContext.RoutineReports.Add(record);
+
+            _kubeContext.SaveChanges();
 
             return Ok();
         }
