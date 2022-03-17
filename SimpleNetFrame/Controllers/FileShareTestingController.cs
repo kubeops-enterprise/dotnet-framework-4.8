@@ -2,6 +2,7 @@
 using System;
 using System.Configuration;
 using System.IO;
+using System.Linq;
 using System.Web.Http;
 
 namespace SimpleNetFrame.Controllers
@@ -10,7 +11,7 @@ namespace SimpleNetFrame.Controllers
     {
         public IHttpActionResult Get()
         {
-            var cred = ConfigurationSettings.AppSettings["blobcred"];
+            var cred = ConfigurationManager.AppSettings.GetValues("blobcred").FirstOrDefault();
 
             ShareClient share = new ShareClient(cred, "test-file-share");
             var superDir = share.GetDirectoryClient("super");

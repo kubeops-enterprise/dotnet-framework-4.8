@@ -12,7 +12,7 @@ namespace SimpleNetFrame.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
-            var check = ConfigurationSettings.AppSettings["kubeexuser"];
+            var check = ConfigurationManager.AppSettings.GetValues("kubeexuser").FirstOrDefault();
             ViewBag.CheckConf = !string.IsNullOrEmpty(check);
 
             return View();
